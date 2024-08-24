@@ -1,0 +1,12 @@
+---
+- name: Example Task for Ansible Vault
+  hosts: localhost
+
+  tasks:
+    - name: Load vault variables
+      ansible.builtin.include_vars:
+        file: /etc/ansible/secrets/vault.yml
+
+    - name: Print API Key
+      debug:
+        var: api_key

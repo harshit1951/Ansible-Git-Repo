@@ -1,0 +1,13 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Run Ansible Playbook') {
+            steps {
+                script {
+                    sh 'ansible-playbook /etc/ansible/playbooks/assignment-2-v1.yml --vault-password-file /tmp/vault_pass.txt'
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Running the Ansible Playbook') {
+            steps {
+                sh 'sudo ansible-playbook /etc/ansible/playbooks/copying_file.yml'
+            }
+        }
+        
+        stage('Running python program on agent') {
+            agent {
+                label 'Server-02'
+            }
+            steps {
+                sh 'sudo python3 /home/ansibleUser/Pyramid.py'
+            }
+        }
+    }
+}

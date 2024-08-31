@@ -1,0 +1,11 @@
+---
+- name: Copying a file from Main server to Remote server
+  hosts: all
+
+  tasks:
+  - name: Copying the file
+    copy:
+      src: /etc/ansible/playbooks/Pyramid.py
+      dest: /home/vagrant/AnsibleFolder
+      mode: 0777
+    become: yes
